@@ -1,8 +1,8 @@
 <?php
 
-// Define path to application directory
+// Define application name
 defined('APPLICATION_NAME')
-    || define('APPLICATION_NAME', 'starter');
+    || define('APPLICATION_NAME', $_SERVER['HTTP_HOST']);
 
 // Define path to application directory
 defined('APPLICATION_PATH')

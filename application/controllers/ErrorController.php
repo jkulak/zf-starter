@@ -19,7 +19,7 @@ class ErrorController extends Zend_Controller_Action
                 // 404 error -- controller or action not found
                 $this->getResponse()->setHttpResponseCode(404);
                 $priority = Zend_Log::NOTICE;
-                $this->view->message = 'Page not found';
+                $this->view->message = 'Page not found ' . $_SERVER['REQUEST_URI'];
                 break;
             default:
                 // application error
@@ -28,8 +28,6 @@ class ErrorController extends Zend_Controller_Action
                 $this->view->message = 'Application error';
                 break;
         }
-
-        Zend_Debug::dump($errors->exception);
         
         // Log exception, if logger available
         if ($log = $this->getLog()) {
@@ -42,7 +40,7 @@ class ErrorController extends Zend_Controller_Action
             $log->log($logMsg, $priority);
 
             // Log details to debug.log
-            $log->log('Request Parameters: ' . serialize($errors->request->getParams()), Zend_Log::DEBUG);
+            $log->log('Request Parameters: ' . print_r($errors->request->getParams(), true), Zend_Log::DEBUG);
             $log->log('Exception stack: ' . serialize($errors->exception), Zend_Log::DEBUG);
         }
         
@@ -66,4 +64,3 @@ class ErrorController extends Zend_Controller_Action
 
 
 }
-
