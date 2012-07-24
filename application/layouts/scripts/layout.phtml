@@ -1,0 +1,50 @@
+<?php echo $this->doctype(); ?>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl" itemscope itemtype="http://schema.org/Blog">
+<!--  xmlns:og="http://opengraphprotocol.org/schema/" -->
+<head>
+<?php echo $this->headMeta(); ?>
+<?php echo $this->headTitle(); ?>
+<?php echo $this->headScript(); ?>
+<?php echo $this->headLink(); ?>
+
+<?php // echo $this->render('_partials/fb/og.phtml'); ?>
+<?php // echo $this->render('_partials/google/analytics.phtml'); ?>
+<?php // echo $this->render('_partials/google/plusOneHeader.phtml'); ?>
+</head>
+<body>
+    <?php // echo $this->render('_partials/fb/initJSSDK.phtml'); ?>
+    <?php // echo $this->render('_partials/google/plusOneRender.phtml'); ?>
+    <!-- header -->
+    <div id="header">
+        <h1>zf-starter</h1>
+        <div id="nav">
+            <ul>
+                <li class="first"><a href="/test">test</a></li>
+                <?php if ($this->identity): ?>
+                    <li><a href="<?php echo $this->url(array(), 'moderation') ?>">moderacja</a></li>
+                    <li><a href="<?php echo $this->url(array(), 'admin-logout') ?>">wyloguj (<?php echo $this->identity['username'] ?>)</a></li>
+                <?php endif ?>
+            </ul>
+        </div>
+    </div>
+
+    <div id="page">
+
+        <!-- main content -->
+        <div id="content">
+            <div id="main">
+                <?php echo $this->layout()->content; ?>
+            </div>
+
+            <div id="additional">
+                additional
+            </div>
+        </div>
+
+    </div>
+    <!-- footer -->
+    <div id="footer">
+        footer
+    </div>
+</body>
+</html>
