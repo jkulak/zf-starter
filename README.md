@@ -1,13 +1,8 @@
-zf-starter
-==========
+# zf-starter
 
 Zend Framework starter project
 
-
-
-== Instalation ==
-# Create vhost {project_name}
-# Create webserver logs directory: /var/log/apache2/{project_name}/
-# Create application logs directory: /var/log/{project_name}/
-# chmod /var/log/{project_name}/ to be accessible by webserver
-
+# Instalation
+1. Create an Apache vhost _project_name_
+2. Create webserver logs directory: /var/log/apache2/_project_name_
+3. Create application logs directory: /var/log/_project_name_ and make it accessible by the webserver
